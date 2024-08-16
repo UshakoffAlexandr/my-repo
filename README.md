@@ -1,2 +1,2 @@
 
-https://react-application-todoapp.vercel.app/
+https://ushakoffalexandr.github.io/my-repo/
