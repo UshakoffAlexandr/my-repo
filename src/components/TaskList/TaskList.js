@@ -1,30 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import Task from '../Task/Task.js'
 
 import './taskList.css'
 
-export default class TaskList extends Component {
-  render() {
-    const { tasks, onDeleted, onToggleDone, onStartTimer, onStopTimer, onEditingTask, onUpdateTask } = this.props
-    return (
-      <ul className="todo-list">
-        {tasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            onDeleted={() => onDeleted(task.id)}
-            onToggleDone={() => onToggleDone(task.id)}
-            onStartTimer={() => onStartTimer(task.id)}
-            onStopTimer={() => onStopTimer(task.id)}
-            onEditingTask={() => onEditingTask(task.id)}
-            onUpdateTask={onUpdateTask}
-          />
-        ))}
-      </ul>
-    )
-  }
+const TaskList = ({ tasks, onDeleted, onToggleDone, onStartTimer, onStopTimer, onEditingTask, onUpdateTask }) => {
+  return (
+    <ul className="todo-list">
+      {tasks.map((task) => (
+        <Task
+          key={task.id}
+          task={task}
+          onDeleted={() => onDeleted(task.id)}
+          onToggleDone={() => onToggleDone(task.id)}
+          onStartTimer={() => onStartTimer(task.id)}
+          onStopTimer={() => onStopTimer(task.id)}
+          onEditingTask={() => onEditingTask(task.id)}
+          onUpdateTask={onUpdateTask}
+        />
+      ))}
+    </ul>
+  )
 }
 
 TaskList.defaultProps = {
@@ -49,3 +46,5 @@ TaskList.propTypes = {
   onEditingTask: PropTypes.func.isRequired,
   onUpdateTask: PropTypes.func.isRequired,
 }
+
+export default TaskList
